@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">MyApp</string>
+    <string name="app_title">我草擬嗎</string>
+    <string-array name="dropdown_items">
+        <item>lbs</item>
+        <item>kg</item>
+        <item>g</item>
+        <item>ml</item>
+    </string-array>
+    <string-array name="unit_options">
+        <item>g</item>
+        <item>ml</item>
+        <item>tbs</item>
+        <item>unit</item>
+    </string-array>
+</resources>

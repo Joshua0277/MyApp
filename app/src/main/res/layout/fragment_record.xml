@@ -1,0 +1,71 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- 蛋白質輸入區 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Protein"
+            android:textSize="18sp"/>
+        <LinearLayout
+            android:id="@+id/Pcontainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+        <Button
+            android:id="@+id/btn_add_protein"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Protein" />
+
+        <!-- 碳水輸入區 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Carbohydrates"
+            android:textSize="18sp"/>
+        <LinearLayout
+            android:id="@+id/Ccontainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+        <Button
+            android:id="@+id/btn_add_carb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Carb" />
+
+        <!-- 其他食物輸入區 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Other Foods"
+            android:textSize="18sp"/>
+        <LinearLayout
+            android:id="@+id/Ocontainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+        <Button
+            android:id="@+id/btn_add_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Other" />
+
+        <!-- 提交按鈕 -->
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+</ScrollView>

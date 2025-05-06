@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <Button
+                android:id="@+id/btn_back"
+                android:layout_width="64dp"
+                android:layout_height="match_parent"
+                android:text="Back"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewRe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Record your Diet"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <LinearLayout
+            android:id="@+id/Pcontainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Protein"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/editTextP"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:hint="Name of food"
+                android:textColorHint="@color/cardview_shadow_start_color"
+                android:layout_marginEnd="4dp" />
+
+            <EditText
+                android:id="@+id/editTextPP"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Amount"
+                android:textColorHint="@color/cardview_shadow_start_color" />
+
+            <Spinner
+                android:id="@+id/spinner_P"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:entries="@array/dropdown_items" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <CheckBox
+                android:id="@+id/checkbox_PRaw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Raw" />
+
+            <CheckBox
+                android:id="@+id/checkbox_bone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="With Bone" />
+
+            <CheckBox
+                android:id="@+id/checkbox_skin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="With Skin" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_add_protein"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+ Add Protein" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/Ccontainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Carbs/Veges"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/editTextC"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:hint="Name of food"
+                android:textColorHint="@color/cardview_shadow_start_color"
+                android:layout_marginEnd="4dp" />
+
+            <EditText
+                android:id="@+id/editTextCP"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Amount"
+                android:textColorHint="@color/cardview_shadow_start_color" />
+
+            <Spinner
+                android:id="@+id/spinner_C"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:entries="@array/dropdown_items" />
+            <CheckBox
+                android:id="@+id/checkbox_CRaw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Raw" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_add_carb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+ Add Carbs" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Ocontainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Others"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/editTextO"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:hint="Name of food"
+                android:textColorHint="@color/cardview_shadow_start_color"
+                android:layout_marginEnd="4dp" />
+
+            <EditText
+                android:id="@+id/editTextOP"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Amount"
+                android:textColorHint="@color/cardview_shadow_start_color" />
+
+            <Spinner
+                android:id="@+id/spinner_O"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:entries="@array/dropdown_items" />
+            <CheckBox
+                android:id="@+id/checkbox_ORaw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Raw" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_add_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+ Add" />
+    </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:layout_marginTop="24dp" />
+    </LinearLayout>
+</ScrollView>
