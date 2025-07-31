@@ -7,6 +7,7 @@ import android.widget.*;
 
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class EditHistoryActivity extends AppCompatActivity {
@@ -19,7 +20,7 @@ public class EditHistoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_history);
+        setContentView(R.layout.edit_history);
 
         recordDate = getIntent().getStringExtra("record_date");
         container = findViewById(R.id.container_inputs);

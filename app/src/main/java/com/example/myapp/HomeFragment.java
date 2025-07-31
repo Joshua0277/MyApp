@@ -38,7 +38,7 @@ public class HomeFragment extends Fragment {
 
 
         btnHistory.setOnClickListener(v -> {
-            Intent intent = new Intent(requireActivity(), HistoryActivity.class);
+            Intent intent = new Intent(requireActivity(), HistoryFragment.class);
             startActivity(intent);
         });
 

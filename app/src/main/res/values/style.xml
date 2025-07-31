@@ -1,7 +1,6 @@
 <resources>
     <!-- 啟動主題 -->
-    <style name="Theme.MyApp.Launcher" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- 設置背景圖片或顏色 -->
+    <style name="Theme.MyApp.Launcher" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:windowBackground">@drawable/launch_background</item>
     </style>
 </resources>

@@ -15,7 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
     private FragmentManager fragmentManager;
-    private Fragment homeFragment, recordFragment, exploreFragment, communityFragment, accountFragment;
+    private Fragment homeFragment, recordFragment,historyFragment, exploreFragment, communityFragment, accountFragment;
     private Fragment activeFragment;
 
     private BottomNavigationView bottomNavigationView;
@@ -31,51 +31,41 @@ public class MainActivity extends AppCompatActivity {
         // 初始化 Fragment（只加載一次）
         homeFragment = new HomeFragment();
         recordFragment = new RecordFragment();
+        historyFragment = new HistoryFragment();
         exploreFragment = new ExploreFragment();
         communityFragment = new CommunityFragment();
         accountFragment = new AccountFragment();
         activeFragment = homeFragment;
 
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.add(R.id.frame_container, homeFragment, "home").commit();
-        transaction.add(R.id.frame_container, recordFragment, "record").hide(recordFragment).commit();
-        transaction.add(R.id.frame_container, exploreFragment, "explore").hide(exploreFragment).commit();
-        transaction.add(R.id.frame_container, communityFragment, "community").hide(communityFragment).commit();
-        transaction.add(R.id.frame_container, accountFragment, "account").hide(accountFragment).commit();
+        transaction.add(R.id.frame_container, homeFragment, "home");
+        transaction.add(R.id.frame_container, recordFragment, "record").hide(recordFragment);
+        transaction.add(R.id.frame_container, historyFragment, "history").hide(historyFragment);
+        transaction.add(R.id.frame_container, exploreFragment, "explore").hide(exploreFragment);
+        transaction.add(R.id.frame_container, communityFragment, "community").hide(communityFragment);
+        transaction.add(R.id.frame_container, accountFragment, "account").hide(accountFragment);
+        transaction.commit();
 
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+        bottomNavigationView.setOnItemSelectedListener(item -> {
             Fragment selectedFragment = null;
+            int id = item.getItemId();
 
-            int id = item.getItemId();  //  確保 `getItemId()` 結果是整數常數
+            if (id == R.id.nav_record) selectedFragment = recordFragment;
+            else if (id == R.id.nav_explore) selectedFragment = exploreFragment;
+            else if (id == R.id.nav_home) selectedFragment = homeFragment;
+            else if (id == R.id.nav_community) selectedFragment = communityFragment;
+            else if (id == R.id.nav_account) selectedFragment = accountFragment;
+            else if (id == R.id.nav_history) selectedFragment = historyFragment;
 
-            if (id == R.id.nav_record) {
-                selectedFragment = new RecordFragment();
-            } else if (id == R.id.nav_explore) {
-                selectedFragment = new ExploreFragment();
-            } else if (id == R.id.nav_home) {
-                selectedFragment = new HomeFragment();
-            } else if (id == R.id.nav_community) {
-                selectedFragment = new CommunityFragment();
-            } else if (id == R.id.nav_account) {
-                selectedFragment = new AccountFragment();
-            } else if (id == R.id.nav_history){
-                    selectedFragment = new HistoryFragment();
-            }
-
-            if (selectedFragment != null) {
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.frame_container, selectedFragment)
+            if (selectedFragment != null && selectedFragment != activeFragment) {
+                fragmentManager.beginTransaction()
+                        .hide(activeFragment)
+                        .show(selectedFragment)
                         .commit();
+                activeFragment = selectedFragment;
             }
             return true;
         });
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.frame_container, new HomeFragment())
-                    .commit();
             bottomNavigationView.setSelectedItemId(R.id.nav_home);  // 預設選中 Home
-        }
-
     }
 }

@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">MyApp</string>
     <string name="app_title">我草擬嗎</string>
+    <string name="home">Home</string>
+    <string name="record">Record</string>
+    <string name="history">History</string>
+    <string name="explore">Explore</string>
+    <string name="community">Community</string>
+    <string name="account">Account</string>
     <string-array name="dropdown_items">
         <item>lbs</item>
         <item>kg</item>
