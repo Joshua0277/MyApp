@@ -16,5 +16,14 @@
         android:id="@+id/details_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" />
+        android:orientation="vertical"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btn_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit"
+        android:textSize="12sp"
+        android:layout_marginTop="8dp" />
 </LinearLayout>

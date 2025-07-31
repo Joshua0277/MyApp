@@ -28,6 +28,7 @@ public class HistoryFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_history, container, false);
 
+        dbHelper = new DatabaseHelper(requireContext());
         recyclerView = view.findViewById(R.id.recycler_history);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 

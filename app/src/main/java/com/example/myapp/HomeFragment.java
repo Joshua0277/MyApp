@@ -38,8 +38,12 @@ public class HomeFragment extends Fragment {
 
 
         btnHistory.setOnClickListener(v -> {
-            Intent intent = new Intent(requireActivity(), HistoryFragment.class);
-            startActivity(intent);
+            Fragment historyFragment = new HistoryFragment();
+            FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.frame_container, historyFragment)
+                    .addToBackStack(null)
+                    .commit();
         });
 
         return view;

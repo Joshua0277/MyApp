@@ -102,16 +102,40 @@ public class RecordFragment extends Fragment {
     private void saveDataToDatabase() {
         DatabaseHelper dbHelper = new DatabaseHelper(requireContext());
         String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+        
+        // 建立摘要字串
+        Map<String, StringBuilder> summaryMap = new HashMap<>();
+        summaryMap.put("Protein", new StringBuilder());
+        summaryMap.put("Carb", new StringBuilder());
+        summaryMap.put("Other", new StringBuilder());
 
         for (String type : foodInputs.keySet()) {
             for (FoodInput input : foodInputs.get(type)) {
                 if (!input.getName().isEmpty() && !input.getAmount().isEmpty()) {
                     dbHelper.insertDetailedRecord(date, type, input.getName(), input.getAmount(), input.getUnit());
+                    // 建立摘要
+                    summaryMap.get(type).append(input.getName()).append(" ")
+                            .append(input.getAmount()).append(input.getUnit()).append(", ");
                 }
             }
         }
+        
+        // 儲存摘要
+        dbHelper.insertSummaryRecord(
+                date,
+                trimSummary(summaryMap.get("Protein")),
+                trimSummary(summaryMap.get("Carb")),
+                trimSummary(summaryMap.get("Other"))
+        );
 
         Toast.makeText(requireContext(), "資料已儲存至資料庫", Toast.LENGTH_SHORT).show();
+    }
+    
+    private String trimSummary(StringBuilder sb) {
+        if (sb.length() > 2) {
+            return sb.substring(0, sb.length() - 2);
+        }
+        return sb.toString();
     }
 
     // FoodInput 類別（可以放在這或獨立成檔案）
